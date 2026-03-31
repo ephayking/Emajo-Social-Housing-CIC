@@ -626,4 +626,11 @@
       navbar.classList.remove("active");
       navbarToggler && navbarToggler.classList.remove("active");
     }));
-    const backTopBtn = document.quer
+    const backTopBtn = document.querySelector("[data-back-top-btn]");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY >= 100) backTopBtn && backTopBtn.classList.add("active");
+      else backTopBtn && backTopBtn.classList.remove("active");
+    });
+  </script>
+</body>
+</html>
