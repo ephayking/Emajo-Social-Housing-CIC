@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us — Emajo Social Housing CIC</title>
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Roboto:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --light-steel-blue: #adf9ff;
+      --royal-blue-light: #2681a6;
+      --flickr-blue_30: rgba(38,129,166,0.3);
+      --carolina-blue: #2e86ab;
+      --oxford-blue-1: #005274;
+      --oxford-blue-2: #004263;
+      --oxford-blue-3: #004263;
+      --gainsboro_50: hsla(0, 0%, 85%, 0.5);
+      --lavender-web: #d4f5ff;
+      --sonic-silver: hsl(0, 0%, 47%);
+      --light-gray: hsl(0, 0%, 84%);
+      --cultured: hsl(0, 0%, 97%);
+      --black_10: hsla(0, 0%, 0%, 0.1);
+      --black_8: hsla(0, 0%, 0%, 0.08);
+      --white: hsl(0, 0%, 100%);
+      --black: hsl(0, 0%, 0%);
+      --jet: hsl(0, 0%, 20%);
+      --gradient: linear-gradient(90deg, var(--carolina-blue) 0%, var(--royal-blue-light) 100%);
+      --ff-roboto: "Roboto", sans-serif;
+      --ff-poppins: "Poppins", sans-serif;
+      --fs-1: 4rem; --fs-2: 3.6rem; --fs-3: 3.2rem;
+      --fs-4: 2.4rem; --fs-5: 2.2rem; --fs-6: 1.8rem; --fs-7: 1.6rem;
+      --fw-800: 800; --fw-700: 700; --fw-600: 600; --fw-500: 500;
+      --section-padding: 100px;
+      --shadow-1: 4px 4px 15px var(--black_10);
+      --shadow-2: 0 10px 15px var(--black_10);
+      --shadow-3: 0px 20px 60px var(--black_8);
+      --shadow-4: 0px 10px 30px var(--flickr-blue_30);
+      --radius-6: 6px; --radius-4: 4px;
+      --transition: 0.25s ease;
+      --cubic-out: cubic-bezier(0.33, 0.85, 0.4, 0.96);
+    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    li { list-style: none; }
+    a { text-decoration: none; color: inherit; }
+    a, img, span, input, button, ion-icon { display: block; }
+    img { height: auto; }
+    input, button { background: none; border: none; font: inherit; }
+    input { width: 100%; }
+    button { cursor: pointer; }
+    ion-icon { pointer-events: none; }
+    address { font-style: normal; }
+    html { font-family: var(--ff-roboto); font-size: 10px; scroll-behavior: smooth; }
+    body { background-color: var(--white); color: var(--sonic-silver); font-size: 1.5rem; }
+
+    .container { padding-inline: 25px; }
+    .section { padding-block: var(--section-padding); }
+    .section-subtitle {
+      color: var(--royal-blue-light);
+      font-family: var(--ff-poppins);
+      font-size: var(--fs-6);
+      font-weight: var(--fw-700);
+      text-transform: uppercase;
+      margin-block-end: 10px;
+    }
+    .h1, .h2, .h3 { font-family: var(--ff-poppins); line-height: 1.2; }
+    .h1 { color: var(--oxford-blue-1); font-size: var(--fs-2); }
+    .h2, .h3 { color: var(--oxford-blue-2); }
+    .h2 { font-size: var(--fs-1); }
+    .h3 { font-size: var(--fs-5); }
+    .btn {
+      background-image: linear-gradient(var(--deg, 90deg), var(--carolina-blue) 0%, var(--royal-blue-light) 100%);
+      color: var(--white); font-size: var(--fs-7); text-transform: uppercase;
+      padding: 20px 30px; text-align: center; border-radius: var(--radius-4); box-shadow: var(--shadow-4);
+    }
+    .btn:is(:hover, :focus) { --deg: -90deg; }
+    .w-100 { width: 100%; }
+    .text-center { text-align: center; }
+    .section-text { line-height: 1.7; }
+
+    /* HEADER */
+    .header-top, .header-bottom .btn { display: none; }
+    .header-bottom {
+      position: fixed; top: 0; left: 0; width: 100%;
+      padding-block: 15px; z-index: 4;
+      background-color: var(--white); box-shadow: var(--shadow-2);
+    }
+    .header-bottom > .container {
+      display: flex; justify-content: space-between; align-items: center; gap: 20px;
+    }
+    .logo {
+      color: var(--oxford-blue-1); font-family: var(--ff-poppins);
+      font-size: 3.4rem; font-weight: var(--fw-800);
+    }
+    .logo-img { display: block; height: 44px; width: auto; object-fit: contain; }
+    .nav-toggle-btn { color: var(--black); 
+      font-size: 30px; 
+      border: 1px solid var(--black); 
+      padding: 5px; 
+      border-radius: 7px }
+    .nav-toggle-btn.active .menu-icon, 
+    .nav-toggle-btn .close-icon { display: none; }
+    .nav-toggle-btn .menu-icon, 
+    .nav-toggle-btn.active .close-icon { display: block; }
+    .navbar {
+      position: absolute; top: calc(100% + 5px); left: 25px; right: 25px;
+      background-color: var(--white); padding-inline: 0; box-shadow: var(--shadow-1);
+      max-height: 0; visibility: hidden; overflow: hidden; transition: 0.25s var(--cubic-out);
+    }
+    .navbar.active { visibility: visible; max-height: 244px; transition-duration: 0.5s; }
+    .navbar-list > li:not(:last-child) { border-block-end: 1px solid var(--gainsboro_50); }
+    .navbar-link { color: var(--jet); text-transform: uppercase; font-weight: var(--fw-600); padding: 15px; }
+    .navbar-link.active { color: var(--royal-blue-light); }
+
+    /* PAGE HERO */
+    .page-hero {
+      background: linear-gradient(135deg, var(--oxford-blue-2) 0%, var(--oxford-blue-1) 60%, #005274 100%);
+      padding-block: 160px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 70% 50%, rgba(46,134,171,0.15) 0%, transparent 60%);
+    }
+    .page-hero::after {
+      content: '';
+      position: absolute;
+      bottom: -2px; left: 0; right: 0;
+      height: 60px;
+      background: var(--white);
+      clip-path: ellipse(55% 100% at 50% 100%);
+    }
+    .page-hero .container { position: relative; z-index: 1; }
+    .page-hero-label {
+      display: inline-block;
+      background: rgba(46,134,171,0.2);
+      border: 1px solid rgba(46,134,171,0.4);
+      color: #adf9ff;
+      font-family: var(--ff-poppins);
+      font-size: 1.3rem;
+      font-weight: var(--fw-600);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      padding: 8px 18px;
+      border-radius: 50px;
+      margin-block-end: 20px;
+    }
+    .page-hero-title {
+      font-family: var(--ff-poppins);
+      font-size: clamp(3.2rem, 6vw, 6rem);
+      font-weight: var(--fw-800);
+      color: var(--white);
+      line-height: 1.1;
+      margin-block-end: 20px;
+    }
+    .page-hero-title em { color: #adf9ff; font-style: italic; }
+    .page-hero-desc {
+      color: #ffffff;
+      font-size: var(--fs-6);
+      line-height: 1.7;
+      max-width: 560px;
+    }
+
+    /* MISSION SECTION */
+    .mission { background: var(--white); }
+    .mission .container {
+      display: grid; gap: 60px;
+    }
+    .mission-visual {
+      position: relative;
+    }
+    .mission-img-stack {
+      position: relative;
+      height: 420px;
+    }
+    .mission-img-main {
+      position: absolute;
+      top: 0; left: 0;
+      width: 75%;
+      height: 340px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0,66,99,0.2);
+    }
+    .mission-img-accent {
+      position: absolute;
+      bottom: 0; right: 0;
+      width: 55%;
+      height: 260px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0,66,99,0.15);
+      border: 4px solid var(--white);
+    }
+    .img-placeholder {
+      width: 100%; height: 100%;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 12px;
+    }
+    .img-placeholder.blue-warm {
+      background: linear-gradient(135deg, #b8dff0 0%, #adf9ff 100%);
+    }
+    .img-placeholder.blue-deep {
+      background: linear-gradient(135deg, var(--oxford-blue-1) 0%, #005274 100%);
+    }
+    .img-placeholder ion-icon {
+      font-size: 4rem;
+      color: var(--white);
+      opacity: 0.6;
+    }
+    .img-placeholder span {
+      font-family: var(--ff-poppins);
+      font-size: 1.3rem;
+      font-weight: var(--fw-600);
+      color: var(--white);
+      opacity: 0.7;
+      text-align: center;
+      padding-inline: 20px;
+    }
+    .mission-badge {
+      position: absolute;
+      top: 50%; left: 60%;
+      transform: translate(-50%, -50%);
+      background: var(--gradient);
+      color: var(--white);
+      font-family: var(--ff-poppins);
+      font-weight: var(--fw-700);
+      text-align: center;
+      padding: 18px 22px;
+      border-radius: 16px;
+      box-shadow: var(--shadow-4);
+      line-height: 1.3;
+      z-index: 3;
+    }
+    .mission-badge .badge-num { font-size: 3rem; font-weight: var(--fw-800); display: block; }
+    .mission-badge .badge-text { font-size: 1.2rem; text-transform: uppercase; letter-spacing: 1px; }
+    .mission-content .section-subtitle { margin-block-end: 12px; }
+    .mission-content .h2 { margin-block-end: 24px; font-size: clamp(2.8rem, 4vw, 4.2rem); }
+    .mission-content .section-text { margin-block-end: 18px; }
+    .mission-content .btn { display: inline-block; margin-block-start: 28px; }
+
+    /* MISSION & VISION */
+    .mission-vision {
+      background: linear-gradient(135deg, var(--oxford-blue-2) 0%, var(--oxford-blue-1) 100%);
+      padding-block: 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .mission-vision::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 80% 20%, rgba(173,249,255,0.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .mission-vision .container { position: relative; z-index: 1; }
+    .mission-vision-grid {
+      display: grid;
+      gap: 28px;
+    }
+    .mv-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(173,249,255,0.15);
+      border-radius: 20px;
+      padding: 48px 40px;
+      position: relative;
+      overflow: hidden;
+      transition: transform var(--transition), border-color var(--transition);
+    }
+    .mv-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--gradient);
+    }
+    .mv-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(173,249,255,0.3);
+    }
+    .mv-card-icon {
+      width: 56px; height: 56px;
+      border-radius: 14px;
+      background: rgba(173,249,255,0.1);
+      display: flex; align-items: center; justify-content: center;
+      margin-block-end: 24px;
+    }
+    .mv-card-icon ion-icon {
+      font-size: 2.8rem;
+      color: var(--light-steel-blue);
+    }
+    .mv-card-label {
+      font-family: var(--ff-poppins);
+      font-size: 1.2rem;
+      font-weight: var(--fw-700);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--light-steel-blue);
+      margin-block-end: 12px;
+    }
+    .mv-card-title {
+      font-family: var(--ff-poppins);
+      font-size: clamp(2.4rem, 3vw, 3.2rem);
+      font-weight: var(--fw-800);
+      color: var(--white);
+      line-height: 1.2;
+      margin-block-end: 20px;
+    }
+    .mv-card-text {
+      color: rgba(255,255,255,0.75);
+      font-size: var(--fs-6);
+      line-height: 1.75;
+    }
+    @media (min-width: 768px) {
+      .mission-vision-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+    }
+
+    /* VALUES */
+    .values { background: #f0f9fd; }
+    .values-header { text-align: center; margin-block-end: 60px; }
+    .values-header .h2 { margin-block-start: 10px; }
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
+    }
+    .value-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 36px 28px;
+      box-shadow: var(--shadow-3);
+      transition: transform var(--transition), box-shadow var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .value-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: var(--gradient);
+    }
+    .value-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-4); }
+    .value-icon {
+      width: 58px; height: 58px;
+      border-radius: 14px;
+      background: var(--lavender-web);
+      display: flex; align-items: center; justify-content: center;
+      margin-block-end: 20px;
+    }
+    .value-icon ion-icon { font-size: 2.6rem; color: var(--royal-blue-light); }
+    .value-card .h3 { margin-block-end: 12px; font-size: 2rem; }
+    .value-card p { line-height: 1.7; }
+
+    /* STORY TIMELINE */
+    .story { background: var(--white); }
+    .story-header { text-align: center; margin-block-end: 60px; }
+    .timeline {
+      position: relative;
+      max-width: 760px;
+      margin-inline: auto;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%; transform: translateX(-50%);
+      top: 0; bottom: 0;
+      width: 2px;
+      background: var(--gradient);
+      opacity: 0.3;
+    }
+    .timeline-item {
+      display: flex;
+      gap: 30px;
+      margin-block-end: 48px;
+      align-items: flex-start;
+    }
+    .timeline-item:nth-child(even) { flex-direction: row-reverse; text-align: right; }
+    .timeline-item:nth-child(even) .timeline-dot { order: 0; }
+    .timeline-side { flex: 1; }
+    .timeline-dot {
+      flex-shrink: 0;
+      width: 18px; height: 18px;
+      background: var(--gradient);
+      border-radius: 50%;
+      margin-block-start: 6px;
+      box-shadow: 0 0 0 4px rgba(38,129,166,0.2);
+      position: relative;
+      z-index: 1;
+    }
+    .timeline-year {
+      font-family: var(--ff-poppins);
+      font-size: 1.2rem;
+      font-weight: var(--fw-700);
+      color: var(--royal-blue-light);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-block-end: 6px;
+    }
+    .timeline-title {
+      font-family: var(--ff-poppins);
+      font-size: 1.8rem;
+      font-weight: var(--fw-700);
+      color: var(--oxford-blue-2);
+      margin-block-end: 8px;
+    }
+    .timeline-text { line-height: 1.7; font-size: 1.4rem; }
+
+    /* IMPACT STATS */
+    .impact {
+      background: linear-gradient(135deg, var(--oxford-blue-2) 0%, var(--oxford-blue-1) 100%);
+      padding-block: 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .impact::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 20% 50%, rgba(46,134,171,0.1) 0%, transparent 60%);
+    }
+    .impact .container { position: relative; z-index: 1; }
+    .impact-header { text-align: center; margin-block-end: 56px; }
+    .impact-header .section-subtitle { color: var(--carolina-blue); }
+    .impact-header .h2 { color: var(--white); }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 32px;
+    }
+    .stat-item { text-align: center; }
+    .stat-num {
+      font-family: var(--ff-poppins);
+      font-size: clamp(3.6rem, 6vw, 5.5rem);
+      font-weight: var(--fw-800);
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      margin-block-end: 8px;
+    }
+    .stat-label {
+      color: var(--light-steel-blue);
+      font-size: 1.5rem;
+      line-height: 1.5;
+    }
+
+    /* FOOTER */
+    .footer-simple { background-color: var(--oxford-blue-2); padding-block: 40px 24px; }
+    .footer-simple-inner {
+      display: flex; flex-wrap: wrap; align-items: center;
+      justify-content: space-between; gap: 24px;
+      padding-block-end: 28px;
+      border-bottom: 1px solid hsla(0,0%,100%,0.08);
+    }
+    .logo-img-light { height: 36px; filter: brightness(0) saturate(100%) invert(85%) sepia(50%) saturate(400%) hue-rotate(155deg) brightness(110%); }
+    .footer-simple-nav { display: flex; flex-wrap: wrap; gap: 6px 24px; }
+    .footer-simple-link {
+      color: var(--light-steel-blue); font-size: 1.4rem; font-weight: var(--fw-500);
+      text-transform: uppercase; letter-spacing: 0.5px; transition: var(--transition);
+    }
+    .footer-simple-link:hover { color: var(--white); }
+    .footer-simple-social { display: flex; align-items: center; gap: 10px; list-style: none; }
+    .footer-simple-social-link {
+      display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%;
+      background-color: hsla(0,0%,100%,0.07); color: var(--light-steel-blue);
+      font-size: 16px; transition: var(--transition);
+    }
+    .footer-simple-social-link:hover { background-color: var(--royal-blue-light); color: var(--white); }
+    .footer-simple-copy {
+      color: hsla(218,33%,77%,0.6); font-size: 1.3rem; text-align: center; padding-block-start: 20px;
+    }
+    .hero-btn-blue {
+      display: inline-block;
+      background-image: linear-gradient(90deg, var(--carolina-blue) 0%, var(--royal-blue-light) 100%);
+      color: var(--white); font-family: var(--ff-roboto); font-size: var(--fs-7);
+      font-weight: var(--fw-600); text-transform: uppercase; letter-spacing: 0.5px;
+      padding: 18px 34px; border-radius: var(--radius-4); box-shadow: var(--shadow-4); transition: var(--transition);
+    }
+    .hero-btn-blue:is(:hover, :focus) { background-image: linear-gradient(-90deg, var(--carolina-blue) 0%, var(--royal-blue-light) 100%); transform: translateY(-2px); }
+
+    .back-top-btn {
+      position: fixed; bottom: 70px; right: 50px;
+      background-color: var(--royal-blue-light); font-size: 18px; color: var(--white);
+      padding: 14px; border-radius: 50%; visibility: hidden; opacity: 0; transition: var(--transition);
+    }
+    .back-top-btn.active { transform: translateY(-10px); visibility: visible; opacity: 1; }
+
+    @media (min-width: 768px) {
+      body { font-size: 1.6rem; }
+      .container { max-width: 750px; width: 100%; margin-inline: auto; }
+      .section-subtitle { --fs-6: 2.2rem; }
+    }
+    @media (min-width: 992px) {
+      :root { --fs-1: 4.6rem; }
+      .container { max-width: 980px; }
+      .header-top { display: block; background-color: var(--oxford-blue-1); color: var(--white); padding-block: 20px; }
+      .header-top :is(.container, .social-list), .contact-list, .contact-item { display: flex; align-items: center; }
+      .header-top .container { justify-content: space-between; }
+      .contact-list { gap: 20px; }
+      .contact-item { gap: 5px; }
+      .contact-item ion-icon { color: var(--light-steel-blue); --ionicon-stroke-width: 40px; }
+      .contact-link { font-size: 1.5rem; }
+      .header-top .social-list { gap: 15px; }
+      .header-top .social-link { font-size: var(--fs-6); transition: var(--transition); }
+      .header-top .social-link:is(:hover, :focus) { color: var(--royal-blue-light); }
+      .header-bottom { top: 58px; padding-block: 20px; }
+      .nav-toggle-btn { display: none; }
+      .navbar, .navbar.active { all: unset; margin-inline-start: auto; }
+      .navbar-list { display: flex; align-items: center; gap: 10px; }
+      .navbar-list > li:not(:last-child) { border-block-end: none; }
+      .navbar-link { color: var(--oxford-blue-1); font-family: var(--ff-poppins); text-transform: capitalize; transition: var(--transition); }
+      .navbar-link:is(:hover, :focus) { color: var(--royal-blue-light); }
+      .navbar-link.active { color: var(--royal-blue-light); }
+      .header-bottom .btn { display: block; padding: 15px 20px; }
+      .mission .container { grid-template-columns: 1fr 1fr; align-items: center; }
+      .timeline::before { display: none; }
+      .timeline-item, .timeline-item:nth-child(even) { flex-direction: row; text-align: left; }
+      .timeline-item { padding-inline-start: 40px; position: relative; }
+      .timeline-item::before {
+        content: ''; position: absolute; left: 0; top: 8px;
+        width: 20px; height: 20px; border-radius: 50%;
+        background: var(--gradient);
+        box-shadow: 0 0 0 4px rgba(38,129,166,0.2);
+      }
+      .timeline-item .timeline-dot { display: none; }
+    }
+    @media (min-width: 1200px) {
+      .container { max-width: 1180px; }
+    }
+  </style>
+</head>
+<body id="top">
+
+  <header class="header">
+    <div class="header-top">
+      <div class="container">
+        <ul class="contact-list">
+          <li class="contact-item">
+            <ion-icon name="mail-outline"></ion-icon>
+            <a href="info@emajosocialhousing.uk">info@emajosocialhousing.uk</a>
+          </li>
+          <li class="contact-item">
+            <ion-icon name="call-outline"></ion-icon>
+            <a href="tel:+4407506824261" class="contact-link">+44-750-682-4261</a>
+          </li>
+        </ul>
+        <ul class="social-list">
+          <li><a href="#" class="social-link"><ion-icon name="logo-facebook"></ion-icon></a></li>
+          <li><a href="#" class="social-link"><ion-icon name="logo-instagram"></ion-icon></a></li>
+          <li><a href="#" class="social-link"><ion-icon name="logo-twitter"></ion-icon></a></li>
+          <li><a href="#" class="social-link"><ion-icon name="logo-youtube"></ion-icon></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="header-bottom" data-header>
+      <div class="container">
+        <a href="index.html" class="logo" aria-label="Logo">
+          <img src="./349.svg" alt="Logo" class="logo-img">
+        </a>
+        <nav class="navbar container" data-navbar>
+          <ul class="navbar-list">
+            <li><a href="index.html" class="navbar-link" data-nav-link>Home</a></li>
+            <li><a href="about.html" class="navbar-link active" data-nav-link>About Us</a></li>
+            <li><a href="services.html" class="navbar-link" data-nav-link>Services</a></li>
+            <li><a href="referral.html" class="navbar-link" data-nav-link>Referral/Apply</a></li>
+             <li>
+              <a href="contact.html" class="navbar-link" data-nav-link>Contact</a>
+            </li>
+          </ul>
+        </nav>
+        
+        <button class="nav-toggle-btn" aria-label="Toggle menu" data-nav-toggler>
+          <ion-icon name="menu-sharp" aria-hidden="true" class="menu-icon"></ion-icon>
+          <ion-icon name="close-sharp" aria-hidden="true" class="close-icon"></ion-icon>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+      <div class="container">
+        <div class="page-hero-label">About Emajo Social Housing CIC</div>
+        <h1 class="page-hero-title">Why we exist. <em><br>Who we are</em>.<br>What drives us.</h1>
+        <p class="page-hero-desc">We are a Community Interest Company with a clear purpose: <br>to break the cycle that links homelessness, reoffending, and social exclusion — one person at a time.</p>
+      </div>
+    </section>
+
+    <!-- MISSION -->
+    <section class="section mission">
+      <div class="container">
+        <div class="mission-visual">
+          <img src="./assets/images/about-image.png" alt="Emajo Social Housing" class="w-100">
+        </div>
+        <div class="mission-content">
+          <p class="section-subtitle">Our Story</p>
+          <h2 class="h2">Built on the belief that change is possible</h2>
+          <p class="section-text">Emajo Social Housing CIC was founded on a straightforward insight: that housing is not a reward for good behaviour — it is a precondition for it. Without a stable home, employment is out of reach. Without employment, the path back to crime becomes shorter. The cycle repeats.</p>
+          <p class="section-text">Too many people leave prison with nowhere to go. Around 16% are released either homeless or with no settled accommodation — and those who are homeless on release are significantly more likely to reoffend within a year. This is not inevitable. It is a solvable problem.</p>
+          <p class="section-text">We founded Emajo to be part of that solution: a housing provider with rehabilitation at its heart, built on evidence, run with integrity, and accountable to the communities we serve.</p>
+          <a href="referral.html" class="hero-btn-blue" style="margin-block-start: 28px;">Make a Referral</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- MISSION & VISION -->
+    <section class="mission-vision">
+      <div class="container">
+        <div class="mission-vision-grid">
+
+          <div class="mv-card">
+            <div class="mv-card-icon">
+              <ion-icon name="compass-outline"></ion-icon>
+            </div>
+            <p class="mv-card-label">Our Mission</p>
+            <h2 class="mv-card-title">Breaking the cycle, one home at a time.</h2>
+            <p class="mv-card-text">To break the cycle that links homelessness and reoffending by providing the one thing that makes everything else possible: a home.</p>
+          </div>
+
+          <div class="mv-card">
+            <div class="mv-card-icon">
+              <ion-icon name="telescope-outline"></ion-icon>
+            </div>
+            <p class="mv-card-label">Our Vision</p>
+            <h2 class="mv-card-title">A future built on fair chances.</h2>
+            <p class="mv-card-text">A future where every person who has served their sentence has access to stable housing, meaningful support, and a real opportunity to rebuild, regardless of their past.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- VALUES -->
+    <section class="section values">
+      <div class="container">
+        <div class="values-header">
+          <p class="section-subtitle"></p>
+          <h2 class="h2">What We Stand For</h2>
+        </div>
+        <div class="values-grid">
+          <div class="value-card">
+            <div class="value-icon"><ion-icon name="checkmark-outline"></ion-icon></div>
+            <h3 class="h3">Dignity</h3>
+            <p>Every resident is treated as a full person — not a risk category or a case number.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-icon"><ion-icon name="checkmark-outline"></ion-icon></div>
+            <h3 class="h3">Evidence</h3>
+            <p>Our approach is grounded in what research shows actually reduces reoffending.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-icon"><ion-icon name="checkmark-outline"></ion-icon></div>
+            <h3 class="h3">Accountability</h3>
+            <p>We are transparent with funders, partners, residents, and the public — always.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-icon"><ion-icon name="checkmark-outline"></ion-icon></div>
+            <h3 class="h3">Long-term Thinking</h3>
+            <p>We focus on sustainable change, not short-term housing fixes that fall apart after 12 weeks.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-icon"><ion-icon name="checkmark-outline"></ion-icon></div>
+            <h3 class="h3">Partnership</h3>
+            <p>We work with, not around, probation services, local authorities, and other providers.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-icon"><ion-icon name="checkmark-outline"></ion-icon></div>
+            <h3 class="h3">Community Safety</h3>
+            <p>Effective rehabilitation protects the public. These goals are not in tension — they are the same goal.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+
+  </main>
+
+  <footer class="footer-simple">
+    <div class="container">
+      <div class="footer-simple-inner">
+        <a href="index.html" class="footer-simple-logo" aria-label="Logo">
+          <img src="./349.svg" alt="Logo" class="logo-img logo-img-light">
+        </a>
+        <nav class="footer-simple-nav">
+          <a href="index.html" class="footer-simple-link">Home</a>
+          <a href="services.html" class="footer-simple-link">Services</a>
+          <a href="about.html" class="footer-simple-link">About Us</a>
+          <a href="referral.html" class="footer-simple-link">Referral</a>
+          <a href="contact.html" class="footer-simple-link">Contact</a>
+        </nav>
+        <ul class="footer-simple-social">
+          <li><a href="#" class="footer-simple-social-link" aria-label="Facebook"><ion-icon name="logo-facebook"></ion-icon></a></li>
+          <li><a href="#" class="footer-simple-social-link" aria-label="Instagram"><ion-icon name="logo-instagram"></ion-icon></a></li>
+          <li><a href="#" class="footer-simple-social-link" aria-label="Twitter"><ion-icon name="logo-twitter"></ion-icon></a></li>
+          <li><a href="#" class="footer-simple-social-link" aria-label="YouTube"><ion-icon name="logo-youtube"></ion-icon></a></li>
+        </ul>
+      </div>
+      <p class="footer-simple-copy">&copy; 2026 Emajo Social Housing CIC. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <a href="#top" class="back-top-btn" aria-label="back to top" data-back-top-btn>
+    <ion-icon name="caret-up" aria-hidden="true"></ion-icon>
+  </a>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script>
+    'use strict';
+    const navbar = document.querySelector("[data-navbar]");
+    const navbarToggler = document.querySelector("[data-nav-toggler]");
+    const navbarLinks = document.querySelectorAll("[data-nav-link]");
+    if (navbarToggler) {
+      navbarToggler.addEventListener("click", () => {
+        navbar.classList.toggle("active");
+        navbarToggler.classList.toggle("active");
+      });
+    }
+    navbarLinks.forEach(link => link.addEventListener("click", () => {
+      navbar.classList.remove("active");
+      navbarToggler && navbarToggler.classList.remove("active");
+    }));
+    const backTopBtn = document.querySelector("[data-back-top-btn]");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY >= 100) backTopBtn && backTopBtn.classList.add("active");
+      else backTopBtn && backTopBtn.classList.remove("active");
+    });
+  </script>
+</body>
+</html>
